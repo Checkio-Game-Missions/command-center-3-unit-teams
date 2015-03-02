@@ -1,0 +1,141 @@
+<style>
+    pre.example {
+        border: 1px solid #aaa;
+        border-radius: 3px;
+        background: #eee;
+        margin-left: 20px;
+        padding: 5px;
+        overflow: auto;
+    }
+
+    p.indent {
+        margin-left: 20px;
+    }
+</style>
+
+<p>
+    The Great Colonization is coming and we should work as a team. Or for start we will
+    make simple structure for our units and teams. In this mission you need write
+    two classes - one simple for units (more like a dictionary) and for teams.
+
+</p>
+
+<p>
+    The class "Unit" is a unit base representation. An instance has several propirties
+
+</p>
+
+<p>
+    <em>class</em> <strong>Connected</strong><em>(connections)</em>
+</p>
+<p class="indent">
+    Returns a new Connected instance. <em>"connections"</em> is an iterable of sets with two elements
+    in each. Each connection contains two names as strings. Connections can be repeated in the
+    initial data, but inside it store once. Each connection has only two states - existing or not.
+
+</p>
+
+<pre class="example">
+>>> Connected(({"a", "b"}, {"b", "c"}, {"c", "a"}, {"a", "c"}))
+>>> Connected([{"1", "2"}, {"3", "1"}])
+</pre>
+<br>
+
+<p>
+    <strong>add</strong>(connection)
+</p>
+<p class="indent">
+    Add a connection in the instance. <em>"connection"</em>
+    is a set of two names (strings).
+    Returns True if this connection is new.
+    Returns False if this connection exists already.
+</p>
+<pre class="example">
+>>> c = Connected([{"1", "2"}, {"3", "1"}])
+>>> c.add({"1", "3"})
+False
+>>> c.add({"4", "5"})
+True
+</pre>
+<br>
+
+<p>
+    <strong>remove</strong>(connection)
+</p>
+<p class="indent">
+    Remove a connection from the instance. <em>"connection"</em>
+    is a set of two names (strings).
+    Returns True if this connection is exist.
+    Returns False if this connection is not in the instance.
+</p>
+<pre class="example">
+>>> c = Connected([{"1", "2"}, {"3", "1"}])
+>>> c.remove({"1", "3"})
+True
+>>> c.remove({"4", "5"})
+False
+</pre>
+<br>
+<p>
+    <strong>names</strong>()
+</p>
+<p class="indent">
+    Returns a set of names. The set contains only names which is connected with somebody.
+</p>
+<pre class="example">
+>>> c = Connected(({"a", "b"}, {"b", "c"}, {"c", "d"}))
+>>> c.names()
+{"a", "b", "c", "d"}
+>>> c.remove({"d", "c"})
+True
+>>> c.names()
+{"a", "b", "c"}
+</pre>
+<br>
+<p>
+    <strong>connected</strong>(name)
+</p>
+<p class="indent">
+    Returns a set of names which is connected with the given <em>"name"</em>.
+    If "name" is not exists in the instance, then return an empty set.
+</p>
+<pre class="example">
+>>> c = Connected(({"a", "b"}, {"b", "c"}, {"c", "a"}))
+>>> c.connected("a")
+{"b", "c"}
+>>> c.connected("d")
+set()
+>>> c.remove({"c", "a"})
+True
+>>> c.connected("c")
+{"b"}
+>>> c.remove({"c", "b"})
+True
+>>> c.connected("c")
+set()
+</pre>
+<br>
+<p>
+    In this mission all data will be correct and you don't need to implement value checking.
+</p>
+
+<p>
+    <strong>Input: </strong> Statements and expression with the Friends class.
+</p>
+
+<p>
+    <strong>Output: </strong> The behaviour as described.
+</p>
+
+
+<p class="for_info_only">
+    <strong>How it is used: </strong>
+    Here you will implement a class with mutable states. This is not a simple structure with a
+    couple of functions, but object representation with more complex structure.
+
+</p>
+
+<p>
+    <strong>Precondition:</strong>
+    All data are correct.
+</p>

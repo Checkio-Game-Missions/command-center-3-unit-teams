@@ -1,0 +1,51 @@
+<body data-author="bryukh">
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission
+    </div>
+    <div class="answer">
+        First you need implement "__init__" method.
+        This method defined how an instance is created.
+<textarea data-code="python">
+def __init__(self, south, west, width_WE, width_NS, height=10):
+    self.south = south
+    self.west = west
+    self.width_WE = width_WE
+    self.width_NS = width_NS
+    self.height = height</textarea>
+Or you can store all corners coordinates or wall positions.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I need some help to proceed with the mission
+    </div>
+    <div class="answer">
+        The next I recommend to implement "__repr__" method.
+        You can make it with "format"
+<textarea data-code="python">
+def __repr__(self):
+    return "Building({}, {}, {}, {}, {})".format(....)</textarea>
+I think you can fill values inside "format" brackets.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I have gone half way through. Need help!
+    </div>
+    <div class="answer">
+        Corners can be calculated with the given values which you stored in init method.
+        Just return a string with defined keys and calculated values.
+    </div>
+</div>
+<div class="question-answer">
+    <div class="question">
+        I've' stuck. I need a small hint.
+    </div>
+    <div class="answer">
+        "area" and "volume" you will calculate easily from widths and height.
+    </div>
+</div>
+
+
+</body>
